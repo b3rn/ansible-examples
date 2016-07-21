@@ -1,5 +1,6 @@
 - hosts: riak_cluster[0]
-  sudo: True
+  become: True
+	become_method: sudo
   tasks:
   - name: collect riak facts
     riak: command=ping
@@ -8,13 +9,15 @@
 - hosts: riak_cluster:!riak_cluster[0]
   vars:
      primary_node: "{{ hostvars[groups['riak_cluster'][0]]['riak_outputs']['node_name'] }}"
-  sudo: True
+	become_method: sudo
+  become: True
   tasks:
   - name: join riak cluster
     riak: command=join target_node={{ primary_node }}
 
 - hosts: riak_cluster[-1]
-  sudo: True
+	become_method: sudo
+  become: True
   tasks:
   - name: wait for nodes to settle
     pause: seconds=30
