@@ -18,7 +18,7 @@
      image=ami-6c1e8f04
      region="{{ ec2_region }}"
      instance_tags="{'ansible_group':'shellshock', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}'}"
-     count=4
+     count=2
     register: ec2
 
   - name: Wait for SSH to come up
