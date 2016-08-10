@@ -3,6 +3,9 @@
   hosts: "{{ ec2_hosts }}"
   gather_facts: false 
 
+  vars_files:
+    - group_vars/all
+
   vars:
     ec2_region: us-west-2
     ec2_hosts: "tag_Name_demo_{{ tower_user_name }}_windows"
@@ -16,6 +19,8 @@
   gather_facts: false
   connection: local  
 
+  vars_files:
+    - group_vars/all
   vars:
     ec2_hosts: "tag_Name_demo_{{ tower_user_name }}"
 
