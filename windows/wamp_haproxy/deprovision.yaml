@@ -2,6 +2,7 @@
 - name: gather EC2 facts
   hosts: all
   gather_facts: false 
+  connection: local  
 
   vars_files:
     - group_vars/all
@@ -9,6 +10,7 @@
   tasks:
   - name: gather facts 
     ec2_facts:
+    connection: local  
 
 - name: terminate hosts
   hosts: tag_Name_demo_{{ tower_user_name }}_windows"
@@ -22,6 +24,7 @@
 
   tasks:
   - name: terminate EC2 hosts
+    connection: local  
     ec2: >
       region="{{ ec2_region }}"
       instance_ids="{{ item }}"
