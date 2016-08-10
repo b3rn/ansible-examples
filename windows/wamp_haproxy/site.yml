@@ -37,6 +37,7 @@
       enable: yes
       localport: 80
       action: allow
+      direction: out
 
   roles:
   - iis 
