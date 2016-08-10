@@ -1,6 +1,6 @@
 ---
 - name: gather EC2 facts
-  hosts: "{{ ec2_hosts }}"
+  hosts: all
   gather_facts: false 
 
   vars_files:
@@ -11,7 +11,7 @@
     ec2_facts:
 
 - name: terminate hosts
-  hosts: "{{ ec2_hosts }}" 
+  hosts: tag_Name_demo_{{ tower_user_name }}_windows"
   gather_facts: false
   connection: local  
 
