@@ -6,19 +6,21 @@
 
   vars_files:
   - group_vars/all
+  - group_vars/secret.yaml
  
   tasks:
   - name: Launch webserver instances
     ec2: >
      access_key="{{ ec2_access_key }}"
      secret_key="{{ ec2_secret_key }}"
-     keypair="{{ ec2_keypair }}"
+     ebs_optimized="true"
      group="{{ ec2_security_group }}"
      type="{{ ec2_instance_type }}"
-     image="ami-0d789266"
+     image="ami-2426e944"
      region="{{ ec2_region }}"
-     instance_tags="{'ansible_group':'windows_webservers', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}'}"
+     instance_tags="{'ansible_group':'windows_webservers', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}_windows'}"
      count="{{ ec2_instance_count }}"
+     user_data="{{ lookup('template', 'userdata.txt.j2') }}"
      wait=true
     register: ec2
 
@@ -29,13 +31,14 @@
     ec2: >
      access_key="{{ ec2_access_key }}"
      secret_key="{{ ec2_secret_key }}"
-     keypair="{{ ec2_keypair }}"
+     ebs_optimized="true"
      group="{{ ec2_security_group }}"
      type="{{ ec2_instance_type }}"
-     image="ami-17d66f7c"
+     image="ami-a126e9c1"
      region="{{ ec2_region }}"
-     instance_tags="{'ansible_group':'windows_dbservers', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}'}"
+     instance_tags="{'ansible_group':'windows_dbservers', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}_windows'}"
      count="1"
+     user_data="{{ lookup('template', 'userdata.txt.j2') }}"
      wait=true
     register: ec2
 
@@ -45,7 +48,7 @@
   - name: Wait for WinRM to come up
     local_action: wait_for host={{ item.public_dns_name }}
       port=5986 delay=60 timeout=320 state=started
-    with_items: ec2.instances
+    with_items: "{{ ec2.instances }}"
 
     tags:
       - web
