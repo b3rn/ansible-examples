@@ -47,12 +47,16 @@
   - web
 
 # Configure and deploy the load balancer(s).
-- local_action:
+- hosts: localhost
+  connection: local 
+  gather_facts: False
+
   vars_files:
     - group_vars/all
     - group_vars/secret.yaml
   roles:
-   - elb  
+   - elb
+  
   tags: 
   - lb
 
