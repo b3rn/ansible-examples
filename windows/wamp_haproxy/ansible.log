@@ -1,0 +1,8 @@
+2016-08-10 11:43:04,786 p=13306 u=jon |  PLAY [Terminate instances] *****************************************************
+2016-08-10 11:43:04,826 p=13306 u=jon |  TASK [setup] *******************************************************************
+2016-08-10 11:43:05,410 p=13306 u=jon |  ok: [localhost]
+2016-08-10 11:43:05,418 p=13306 u=jon |  TASK [Terminate instances that were previously launched] ***********************
+2016-08-10 11:43:05,956 p=13306 u=jon |  fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "msg": "instance_ids list is required for absent state"}
+2016-08-10 11:43:05,962 p=13306 u=jon |  NO MORE HOSTS LEFT *************************************************************
+2016-08-10 11:43:05,963 p=13306 u=jon |  PLAY RECAP *********************************************************************
+2016-08-10 11:43:05,963 p=13306 u=jon |  localhost                  : ok=1    changed=0    unreachable=0    failed=1   
