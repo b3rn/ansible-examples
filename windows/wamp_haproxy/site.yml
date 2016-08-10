@@ -5,6 +5,9 @@
 - hosts: tag_ansible_group_windows_dbservers
   connection: winrm
 
+  vars_files:
+    - group_vars/all
+    - group_vars/secret.yaml
   vars:
     ansible_ssh_port : 5986
 
@@ -20,6 +23,9 @@
 - hosts: tag_ansible_group_windows_webservers
   connection: winrm
 
+  vars_files:
+    - group_vars/all
+    - group_vars/secret.yaml
   vars:
     ansible_ssh_port : 5986
 
@@ -35,6 +41,9 @@
   connection: local 
   gather_facts: False
 
+  vars_files:
+    - group_vars/all
+    - group_vars/secret.yaml
   roles:
    - elb
   
@@ -48,7 +57,9 @@
 
   vars:
     ansible_ssh_port : 5986
-
+  vars_files:
+    - group_vars/all
+    - group_vars/secret.yaml
   tasks:
 
   - name: Wait for webserver to come up
