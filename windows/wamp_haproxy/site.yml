@@ -1,4 +1,18 @@
 ---
+# Configure and deploy the load balancer(s).
+- hosts: localhost
+  connection: local 
+  gather_facts: False
+
+  vars_files:
+  - group_vars/all
+  - group_vars/secret.yaml
+  roles:
+   - elb
+  
+  tags: 
+  - lb
+
 ## This playbook deploys the whole application stack in this site.  
 
 # Configure and deploy database servers.
@@ -6,8 +20,8 @@
   connection: winrm
 
   vars_files:
-    - group_vars/all
-    - group_vars/secret.yaml
+  - group_vars/all
+  - group_vars/secret.yaml
   vars:
     ansible_ssh_port : 5986
 
@@ -24,8 +38,8 @@
   connection: winrm
 
   vars_files:
-    - group_vars/all
-    - group_vars/secret.yaml
+  - group_vars/all
+  - group_vars/secret.yaml
   vars:
     ansible_ssh_port : 5986
 
@@ -46,20 +60,6 @@
   tags: 
   - web
 
-# Configure and deploy the load balancer(s).
-- hosts: localhost
-  connection: local 
-  gather_facts: False
-
-  vars_files:
-    - group_vars/all
-    - group_vars/secret.yaml
-  roles:
-   - elb
-  
-  tags: 
-  - lb
-
 # Add the webservers to the load balancer(s)
 - hosts: tag_ansible_group_windows_webservers
   connection: winrm
@@ -73,8 +73,8 @@
     - group_vars/secret.yaml
   tasks:
 
-  - name: Wait for webserver to come up
-    wait_for: host={{ inventory_hostname }} port=80 state=started timeout=80
+#  - name: Wait for webserver to come up
+#    wait_for: host={{ inventory_hostname }} port=80 state=started timeout=80
 
   - name: Add host to load balancing pool 
     local_action: 
