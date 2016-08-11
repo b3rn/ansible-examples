@@ -25,6 +25,9 @@
   copy: src=localhost.cfg dest=/etc/nagios/objects/localhost.cfg
   notify: restart nagios
 
+- name: configure admin account
+  copy: src=passwd dest=/etc/nagios/passwd
+
 - name: configure nagios services
   copy: src=ansible-managed-services.cfg dest=/etc/nagios/
 
