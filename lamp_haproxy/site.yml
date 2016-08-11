@@ -31,8 +31,8 @@
 # Configure and deploy the load balancer(s).
 - hosts: "{{ group_lbservers }}"
 
-  - vars_files:
-    group_vars/lbservers
+  vars_files:
+  - group_vars/lbservers
 
   roles:
   - haproxy
