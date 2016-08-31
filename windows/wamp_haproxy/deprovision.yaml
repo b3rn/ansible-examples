@@ -1,5 +1,7 @@
 ---
-#hello
+# - name:
+#   gather_facts: false
+#
 - name: gather EC2 facts
   hosts: "{{ ec2_hosts }}"
   gather_facts: false 
