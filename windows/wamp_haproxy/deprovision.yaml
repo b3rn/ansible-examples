@@ -1,4 +1,6 @@
 ---
+# comment
+#other comment
 - name: Terminate instances
   hosts: all
   tasks:
