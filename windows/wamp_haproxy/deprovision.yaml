@@ -1,3 +1,4 @@
+#hello
 ---
 - name: gather EC2 facts
   hosts: "{{ ec2_hosts }}"
