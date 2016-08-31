@@ -1,4 +1,4 @@
-# terminate instances
+---
 - name: Terminate instances
   hosts: "demo_{{ tower_user_name }}_windows"
   tasks:
