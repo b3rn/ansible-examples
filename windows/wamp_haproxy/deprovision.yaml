@@ -1,9 +1,9 @@
 ---
 - name: Terminate instances
-  hosts: all
-  tasks:
-  - name: Terminate instances that were previously launched
-    ec2:
-      state: absent
-      instance_ids: "{{ ec2_id }}"
-    delegate_to: localhost
+  hosts: tag_Name_demo_jbersuder_windows
+  connection: local
+  tasks:
+    - name: Terminate instances that were previously launched
+      ec2:
+        state: 'absent'
+        instance_ids: '{{ ec2.instance_ids }}'

@@ -6,3 +6,63 @@
 2016-08-10 11:43:05,962 p=13306 u=jon |  NO MORE HOSTS LEFT *************************************************************
 2016-08-10 11:43:05,963 p=13306 u=jon |  PLAY RECAP *********************************************************************
 2016-08-10 11:43:05,963 p=13306 u=jon |  localhost                  : ok=1    changed=0    unreachable=0    failed=1   
+2016-08-31 14:55:34,731 p=86924 u=jon |  ERROR! Syntax Error while loading YAML.
+
+
+The error appears to have been in '/Users/jon/src/ansible-examples/windows/wamp_haproxy/deprovision.yaml': line 3, column 2, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Terminate instances
+  hosts: tag_Name_demo_jbersuder_windows
+ ^ here
+
+2016-08-31 14:56:27,288 p=86993 u=jon |  ERROR! Syntax Error while loading YAML.
+
+
+The error appears to have been in '/Users/jon/src/ansible-examples/windows/wamp_haproxy/deprovision.yaml': line 3, column 2, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Terminate instances
+  hosts: tag_Name_demo_jbersuder_windows
+ ^ here
+
+2016-08-31 14:57:30,927 p=87102 u=jon |  ERROR! Syntax Error while loading YAML.
+
+
+The error appears to have been in '/Users/jon/src/ansible-examples/windows/wamp_haproxy/deprovision.yaml': line 3, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: terminate instances
+- hosts: tag_Name_demo_jbersuder_windows
+^ here
+
+2016-08-31 14:57:38,565 p=87145 u=jon |  ERROR! Syntax Error while loading YAML.
+
+
+The error appears to have been in '/Users/jon/src/ansible-examples/windows/wamp_haproxy/deprovision.yaml': line 4, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+  tasks:
+       ^ here
+
+2016-08-31 14:59:27,013 p=87297 u=jon |  ERROR! Syntax Error while loading YAML.
+
+
+The error appears to have been in '/Users/jon/src/ansible-examples/windows/wamp_haproxy/deprovision.yaml': line 3, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- hosts: tag_Name_demo_jbersuder_windows
+  tasks:
+       ^ here
+

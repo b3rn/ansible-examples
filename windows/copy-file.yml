@@ -1,0 +1,3 @@
+---
+- name: copy file
+	win_copy: 
