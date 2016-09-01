@@ -66,3 +66,14 @@ The offending line appears to be:
   tasks:
        ^ here
 
+2016-09-01 08:53:51,269 p=31157 u=jon |  ERROR! the field 'hosts' has an invalid value, which appears to include a variable that is undefined. The error was: 'ec2_hosts' is undefined
+
+The error appears to have been in '/Users/jon/src/ansible-examples/windows/wamp_haproxy/deprovision.yaml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: gather EC2 facts
+  ^ here
+
