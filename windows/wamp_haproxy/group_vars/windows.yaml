@@ -1,0 +1,2 @@
+ec2_windows_image: ami-1712d877
+ec2_database_image: ami-0411db64

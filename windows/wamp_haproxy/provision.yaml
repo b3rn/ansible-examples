@@ -7,6 +7,7 @@
   vars_files:
   - group_vars/all
   - group_vars/secret.yaml
+  - group_vars/windows.yaml
  
   tasks:
   - name: Launch webserver instances
@@ -16,7 +17,7 @@
      ebs_optimized="true"
      group="{{ ec2_security_group }}"
      type="{{ ec2_instance_type }}"
-     image="ami-2426e944"
+     image="{{ ec2_windows_image }}"
      region="{{ ec2_region }}"
      instance_tags="{'ansible_group':'windows_webservers', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}_windows', 'ansible_set':'windows_demo'}"
      count="{{ ec2_instance_count }}"
@@ -34,7 +35,7 @@
      ebs_optimized="true"
      group="{{ ec2_security_group }}"
      type="{{ ec2_instance_type }}"
-     image="ami-a126e9c1"
+     image="{{ ec2_database_image }}"
      region="{{ ec2_region }}"
      instance_tags="{'ansible_group':'windows_dbservers', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}_windows', 'ansible_set':'windows_demo'}"
      count="1"
