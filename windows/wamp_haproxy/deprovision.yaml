@@ -5,8 +5,6 @@
 
   vars:
     ec2_region: us-west-2
-
-  vars:
     ec2_hosts: "tag_Name_demo_{{ tower_user_name }}_windows"
 
   tasks:
