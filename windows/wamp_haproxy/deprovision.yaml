@@ -19,10 +19,10 @@
 
   tasks:
   - name: terminate EC2 hosts
+    gather_facts: false
     ec2: >
       region=us-west-2
       instance_ids="{{ item }}"
       state=absent
-      wait=True
     with_items: "{{hostvars[inventory_hostname]['ec2_id']}}"
 
