@@ -1,3 +1,5 @@
 wordpress-nginx/hosts
 .DS_Store
 windows/wamp_haproxy/ansible.log
+setup.log
+*.swp
